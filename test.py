@@ -7,9 +7,12 @@ def hello_to_you():
     return "hello"
 
 
+
+
 @app.route('/name',methods= ['POST','GET'])
-def enter_data():
-    s = """<!DOCTYPE html>
+
+def enter_data2():
+    p = """<!DOCTYPE html>
 <html>
 <body>
 <h2>Enter your name and age and we will tell you what year you were born!</h2>
@@ -25,20 +28,18 @@ def enter_data():
 
 </body>
 </html>""" # Note that this defaults to first name is Mickey, last name is Mouse -- you could change that!
-    return s
+    return p
 
-@app.route('/result',methods = ['POST', 'GET'])
-def res():
+@app.route('/newresult',methods = ['POST', 'GET'])
+def res2():
     if request.method == 'GET':
-        result = request.args
-        first = result.get('firstname')
-        newnum = result.get('number')
-        age = 2017 - int(newnum)
+        newresult = request.args
+        first = newresult.get('firstname')
+        newnumm = newresult.get('number')
+        age = 2017 - int(newnumm)
         newage= str(age)
         #return render_template("result.html",result = result)
         return "<b>" + first + "</b> <i>" + str("was born in ") + newage + str("!") + "</i>" 
-
-
 
 
 if __name__ == '__main__':

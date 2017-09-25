@@ -29,7 +29,7 @@ def enter_data():
 
 <html>
 <body>
-<h2>Enter your name and age and we will tell you what year you were born!</h2>
+<h2>Enter your favorite number and we will double it!</h2>
 <form action="http://localhost:5000/result" method="GET">
   Enter your favorite number:<br>
   <input type="number" name="number" value="">
@@ -49,18 +49,20 @@ def res():
         double = int(num) * 2
         new = str(double)
         #return render_template("result.html",result = result)
-        return "<b>" + new + "</b> "
+        return "<b>" + str("Your new number is ") + new + "</b> "
         # <i>" + last + "</i>" 
 
 
-@app.route('/name',methods= ['POST','GET'])
-def enter_data():
-    s = """<!DOCTYPE html>
 
+
+@app.route('/name',methods= ['POST','GET'])
+
+def enter_data2():
+    p = """<!DOCTYPE html>
 <html>
 <body>
-
-<form action="http://localhost:5000/result" method="GET">
+<h2>Enter your name and age and we will tell you what year you were born!</h2>
+<form action="http://localhost:5000/newresult" method="GET">
   First name:<br>
   <input type="text" name="firstname" value="">
   <br>
@@ -72,15 +74,15 @@ def enter_data():
 
 </body>
 </html>""" # Note that this defaults to first name is Mickey, last name is Mouse -- you could change that!
-    return s
+    return p
 
-@app.route('/result',methods = ['POST', 'GET'])
-def res():
+@app.route('/newresult',methods = ['POST', 'GET'])
+def res2():
     if request.method == 'GET':
-        result = request.args
-        first = result.get('firstname')
-        newnum = result.get('number')
-        age = 2017 - int(newnum)
+        newresult = request.args
+        first = newresult.get('firstname')
+        newnumm = newresult.get('number')
+        age = 2017 - int(newnumm)
         newage= str(age)
         #return render_template("result.html",result = result)
         return "<b>" + first + "</b> <i>" + str("was born in ") + newage + str("!") + "</i>" 
