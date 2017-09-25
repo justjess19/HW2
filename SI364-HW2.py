@@ -7,14 +7,18 @@
 
 ## [PROBLEM 1]
 
-## Edit the following Flask application code so that if you run the application locally and got to the URL http://localhost:5000/question, you see a form that asks you to enter your favorite number. Once you enter a number and submit it to the form, you should then see a web page that says "Double your favorite number is <number>". For example, if you enter 2 into the form, you should then see a page that says "Double your favorite number is 4". Careful about types in your Python code!
+## Edit the following Flask application code so that if you run the application locally and got to the URL http://localhost:5000/question, 
+#you see a form that asks you to enter your favorite number. Once you enter a number and submit it to the form, 
+#you should then see a web page that says "Double your favorite number is <number>". 
+#For example, if you enter 2 into the form, you should then see a page that says "Double your favorite number is 4". 
+#Careful about types in your Python code!
 ## You can assume a user will always enter a number only.
 
 from flask import Flask
 app = Flask(__name__)
 app.debug = True
 
-@app.route('/')
+@app.route('/question')
 def hello_to_you():
     return 'Hello!'
 
