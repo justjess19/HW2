@@ -49,7 +49,7 @@ def res():
         double = int(num) * 2
         new = str(double)
         #return render_template("result.html",result = result)
-        return "<b>" + str("Your new number is ") + new + "</b> "
+        return "<b>" + str("Double your favorite number is: ") + new + "</b> "
         # <i>" + last + "</i>" 
 
 
